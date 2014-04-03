@@ -20,7 +20,6 @@
  
 === Schema
 http://imgur.com/GE8COR2.jpg
-===
 === EXTRAS (To complete on Friday or beyond)
 
 - Questions have tags
