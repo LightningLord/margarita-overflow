@@ -2,7 +2,7 @@
 
 === Team members
 
- - Michael
+ - Jackie
  - Germain
  - Janet
  - Michael
@@ -13,8 +13,13 @@
  - Users can sign-up, sign-in, sign-out
  - Logged-in users can post questions
  - Logged-in users can post answers
-  
-  
+ 
+
+===
+ http://imgur.com/iKQkHzn.jpg
+ 
+=== Schema
+http://imgur.com/GE8COR2.jpg
 === EXTRAS (To complete on Friday or beyond)
 
 - Questions have tags
@@ -22,6 +27,8 @@
 - Comments, nesting?
 - Pretty CSS
 - Testing beyond basics
+===
+http://imgur.com/Z5R12XK.jpg
 
 === STRETCH (Maybe never)
 
