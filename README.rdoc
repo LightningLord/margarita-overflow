@@ -10,6 +10,19 @@
  
 === MVP
  
-  - Users can sign-up, sign-in, sign-out
-  - Logged-in users can post questions
-  - Logged-in users can post answers
+ - Users can sign-up, sign-in, sign-out
+ - Logged-in users can post questions
+ - Logged-in users can post answers
+  
+  
+=== EXTRAS (To complete on Friday or beyond)
+
+- Questions have tags
+- Up vote and down votes both questions and answers
+- Comments, nesting?
+- Pretty CSS
+- Testing beyond basics
+
+=== STRETCH (Maybe never)
+
+- User ratings
