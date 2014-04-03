@@ -31,6 +31,11 @@ GEM
     arel (3.0.3)
     atomic (1.1.16)
     bcrypt (3.1.7)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -49,6 +54,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     database_cleaner (1.2.0)
+    debug_inspector (0.0.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -118,6 +124,8 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails_db_info (0.1.9)
+      rails (>= 3.1.0)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -151,6 +159,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
+    sextant (0.2.4)
+      rails (>= 3.2)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
     slop (3.5.0)
@@ -180,6 +190,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   capybara
   coffee-rails (~> 3.2.1)
   database_cleaner
@@ -192,8 +204,10 @@ DEPENDENCIES
   pg
   pry
   rails (= 3.2.13)
+  rails_db_info
   rspec-rails
   sass-rails (~> 3.2.3)
   selenium-webdriver
+  sextant
   shoulda-matchers
   uglifier (>= 1.0.3)
