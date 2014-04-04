@@ -3,7 +3,8 @@ Project::Application.routes.draw do
   root to: 'pages#welcome'
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
-  resources :answers, :questions
+  resources :answers
+  resources :questions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
