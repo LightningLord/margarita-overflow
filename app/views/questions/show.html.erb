@@ -4,7 +4,7 @@
   </div>
     <h1><%= @question.title %></h1>
     <h3><%= @question.body %></h3>
-    <p id="sig">Asked by <span class="em"><%= @question.user.username %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %></p>
+    <p id="sig">Asked by <span class="em"><%= @question.user.username %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %> <%= gravatar_for(@question.user) %></p>
   </div>
 
   <% @question.answers.each do |answer| %>
