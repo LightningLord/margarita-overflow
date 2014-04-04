@@ -48,7 +48,8 @@
             <li><%= link_to 'Ask', new_question_path %></li>
             <li><%= link_to 'Questions', questions_path %></li>
             <% if user_signed_in? %>
-              <li><%= link_to "Welcome, #{current_user.username}", edit_user_registration_path %></li>
+            <li><%= link_to "Welcome, #{current_user.username}", edit_user_registration_path %></li>
+            <li id="gravatar"><%= gravatar_for(current_user) %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Sign up", new_user_registration_path %></li>
