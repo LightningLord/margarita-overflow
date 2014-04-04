@@ -52,7 +52,7 @@ describe "Users" do
   end
 
   describe "User cannot ask a question" do
-    xit "when logged out" do
+    it "when logged out" do
       click_on 'Logout'
       first('.jumbotron').click_on("Ask a question")
       expect(page).to_not have_content('Title')

@@ -9,7 +9,11 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new if session
+    if session["warden.user.user.key"]
+      @question = Question.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create

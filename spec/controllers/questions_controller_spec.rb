@@ -32,6 +32,7 @@ describe QuestionsController do
 
   context "#new" do
     it "is successful" do
+      request.session["warden.user.user.key"] = [[user.id]]
       get :new
       expect(response).to be_success
     end
