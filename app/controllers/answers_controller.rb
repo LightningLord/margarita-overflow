@@ -6,7 +6,13 @@ class AnswersController < ApplicationController
 
   def create
     puts params
-    @answer = Answer.create(params[:answer])
+
+    @answer = Answer.new(params[:answer])
+    # question = Question.find_by(@answer)
+    if @answer.save
+      redirect_to question_path(@answer.question)
+    else
+    end
   end
 
   def edit

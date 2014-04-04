@@ -1,6 +1,0 @@
-<h1>Submit an answer</h1>
-
-<%= form_for @answer, url: {action: "create"}, html: {class: "new_answer"} do |f| %>
-  Answer: <%= f.text_area :content, size: "60x12" %><br>
-  <%= f.submit "Create post!" %>
-<% end %>

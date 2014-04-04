@@ -2,5 +2,7 @@
 
 <%= form_for @answer do |f| %>
   Answer: <%= f.text_area :content, size: "60x12" %><br>
-  <%= f.submit "Create post!" %>
-<% end %>
+  <%= f.hidden_field :question_id, value: @question.question_id %>
+
+  <%= f.submit "Submit!" %>
+  <% end %>
