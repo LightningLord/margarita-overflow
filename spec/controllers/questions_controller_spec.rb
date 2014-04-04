@@ -22,9 +22,8 @@ describe QuestionsController do
     it "shows a single question" do
       question = Question.create(title: "blah", body: "Test", user_id: 1)
       get :show, id: question
-      expect(assigns(:quetion)).to eq(question)
+      expect(assigns(:question)).to eq(question)
     end
-
   end
 
 end
