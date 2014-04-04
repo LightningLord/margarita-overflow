@@ -44,3 +44,62 @@
 #gravatar {
   padding-top: 5px;
 }
+
+.jumbotron {
+  background-image: url(sativa.png);
+}
+
+body {
+  background-image: url(lime.jpg);
+}
+
+.margs {
+  background-image: url(sativa.png);
+  width: 60%;
+  min-width: 500px;
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-bottom: 50px;
+  padding: 30px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding-bottom: 35px;
+  min-height: 400px;
+  box-shadow: 4px 4px 3px #000000;
+}
+
+.margs h1 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 3em;
+}
+
+.margs h3 {
+  font-size: 1em;
+  font-style: italic;
+  text-align: center;
+}
+
+.margs hr {
+  width: 50%;
+  color: black;
+  border: 1px solid black;
+}
+
+.margs h4 {
+  text-align: center;
+}
+
+.mytitle {
+  font-size: 1.5em;
+}
+
+.profile-page-entry{
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.profile-page-entry blockquote {
+  border: 0px;
+  margin: 0px;
+}

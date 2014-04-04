@@ -1,0 +1,14 @@
+<div class="margs">
+<h1><%= @user.username %></h1>
+<h3><%= user_adjective %> user for <%= time_ago_in_words(@user.created_at) %></h3>
+<hr>
+<h4>questions posed:</h4>
+<% @user.questions.each do |question| %>
+<%= render "user_question", :question => question %>
+<% end %>
+<hr>
+<h4>answers submitted:</h4>
+<% @user.answers.each do |answer| %>
+<%= render "user_answer", :answer => answer %>
+<% end %>
+</div>
