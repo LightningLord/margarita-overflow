@@ -46,7 +46,6 @@ describe QuestionsController do
         expect(response).to be_redirect
       }.to change { Question.count }.by(1)
     end
-  end
     it "with invalid attributes" do
       request.session["warden.user.user.key"] = [[user.id]]
       expect {
@@ -54,5 +53,6 @@ describe QuestionsController do
         expect(response).to redirect_to new_question_path
       }.to_not change { Question.count }
     end
+  end
 
 end
