@@ -1,6 +1,6 @@
 <h1><%= @question.title %></h1>
 <div>
-  <h3><%= @question.body %></h3>
+  <h2><%= @question.body %></h2>
   <p>-Asked by <%= @question.user.username %></p>
 </div>
 
@@ -10,3 +10,4 @@
   <% end %>
 </ul>
 
+<%= render partial: "answers/form", locals: { answer: @answer } %>

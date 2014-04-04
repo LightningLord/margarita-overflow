@@ -1,6 +1,12 @@
 class AnswersController < ApplicationController
+
+  def new
+    @answer = Answer.new
+  end
+
   def create
-    @answer = Answer.create(params)
+    puts params
+    @answer = Answer.create(params[:answer])
   end
 
   def edit
