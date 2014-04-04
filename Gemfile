@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
 gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
@@ -30,4 +29,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'debugger'
 end
