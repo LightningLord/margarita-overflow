@@ -46,8 +46,8 @@ describe QuestionsController do
         post :create, :question => attributes_for(:question)
         expect(response).to be_success
       }.to change { Question.count }.by(1)
+    end
   end
-
   it "with invalid attributes" do
       expect {
         post :create
