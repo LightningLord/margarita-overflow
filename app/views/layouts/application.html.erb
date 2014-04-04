@@ -1,33 +1,88 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Project</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div id="container">
-  <div id="user_nav">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %> | 
-      <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
-    <% end %>
-  </div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Stack Overflow Want-a-Be">
+
+    <title>Decepticons Overflow</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://s3-us-west-1.amazonaws.com/dbc-overflow/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://s3-us-west-1.amazonaws.com/dbc-overflow/jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag "application" %>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand"><%= link_to 'Decepticons Overflow', root_path %></span>
+        </div>
+        <div id="user_nav" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Ask', new_question_path %></li>
+            <li><%= link_to 'Questions', questions_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Welcome, #{current_user.username}", edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Login", new_user_session_path %></li>
+              <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+            <% end %>
+          </ul>
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Search for..." class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Search</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
 
   <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
+  <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-success" %>
   <% end %>
 
 <!-- <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p> -->
-
+<div class="container">
 <%= yield %>
+</div>
+<div class="container">
+<hr>
 
-</body>
+      <footer>
+        <p>&copy; Decepticons 2014</p>
+      </footer>
+    </div> <!-- /container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/dbc-overflow/bootstrap.min.js"></script>
+  </body>
 </html>

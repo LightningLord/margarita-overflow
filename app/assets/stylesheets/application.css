@@ -11,3 +11,32 @@
  *= require_self
  *= require_tree .
  */
+#question {
+  margin-top: 50px;
+}
+#Q {
+  width: 10%;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.A {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.answer {
+}
+
+#sig {
+  text-align: right;
+}
+
+.em {
+  font-weight: bold;
+}
+
+.question-list{
+  margin-top: 10px;
+  font-size: 1.5em;
+}

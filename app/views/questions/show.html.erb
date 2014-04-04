@@ -1,13 +1,18 @@
-<h1><%= @question.title %></h1>
-<div>
-  <h2><%= @question.body %></h2>
-  <p>-Asked by <%= @question.user.username %></p>
-</div>
+ <div class="page-header">
+  <div id="question">
+    <div id="Q">Question:</div>
+  </div>
+    <h1><%= @question.title %></h1>
+    <h3><%= @question.body %></h3>
+    <p id="sig">Asked by <span class="em"><%= @question.user.username %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %></p>
+  </div>
 
-<ul>
   <% @question.answers.each do |answer| %>
-    <li><%= answer.content %></li>
+    <div class="A">Answer:</div>
+    <div class="answer">
+      <p><%= answer.content %></p>
+    </div>
+    <hr>
   <% end %>
-</ul>
 
 <%= render partial: "answers/form", locals: { answer: @answer, question: @question } %>
