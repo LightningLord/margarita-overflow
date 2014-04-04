@@ -17,7 +17,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
   gem 'dotenv-rails'
-  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'sextant'
   gem 'rails_db_info'

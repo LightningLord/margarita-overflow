@@ -18,13 +18,12 @@ describe QuestionsController do
   end
 
   context "#show" do
+    let(:user){FactoryGirl.create(:user)}
+    let(:question){FactoryGirl.create(:question)}
 
-    before(:each) do
-      question = Question.new(title: "blah", body: "Test", user_id: 1)
-    end
 
     it "shows a single question" do
-      get :show, id: @question
+      get :show, :id => question.id
       expect(assigns(:question)).to eq(question)
     end
 
@@ -42,17 +41,20 @@ describe QuestionsController do
 
   context "#create" do
     it "has valid attributes" do
+      request.session["warden.user.user.key"][0][0] = 2
       expect {
-        post :create, :question => attributes_for(:question)
+        post :create, :question => FactoryGirl.attributes_for(:question)
         expect(response).to be_success
       }.to change { Question.count }.by(1)
     end
   end
   it "with invalid attributes" do
+      request.session["warden.user.user.key"][0][0] = 2
+
       expect {
         post :create
         expect(response.status).to eq 422
-      }.to_not change { Todo.count }
+      }.to_not change { Question.count }
     end
 
 end
