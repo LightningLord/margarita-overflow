@@ -5,10 +5,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    puts params
-
-    @answer = Answer.new(params[:answer])
-    # question = Question.find_by(@answer)
+    @answer = Answer.new(params[:answer], user_id: current_user.id)
     if @answer.save
       redirect_to question_path(@answer.question)
     else
