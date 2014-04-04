@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Questions", :js => false do
+describe "Users", :js => false do
   # let!(:question) { create :question }
   #There is no way to do capybara like a before but we can use before to use less of repetition I believe but in Rspec. Still think we would need to go thru all these actions which is fine.
 
@@ -45,8 +45,15 @@ describe "Questions", :js => false do
 
 
   describe "User can log out" do
+    let(:user) {FactoryGirl.create(:user)}
     it "should not have access to answers" do
-
+      visit root_path
+      click_on 'Login'
+      fill_in 'Email', :with => user.email
+      fill_in 'Password', :with => user.password
+      click_button 'Sign in'
+      click_on 'Logout'
+      expect(page).to have_content('Login')
     end
   end
 
