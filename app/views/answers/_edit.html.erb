@@ -1,1 +1,6 @@
-<%= link_to "Edit", edit_answer_path(@answer), :method => :get %>
+<h1>Edit an answer</h1>
+
+<%= form_for @answer, url: {action: "update"}, html: {class: "edited_answer"} do |f| %>
+  Answer: <%= f.text_area :content, size: "60x12" %><br>
+  <%= f.submit "Edit post" %>
+<% end %>
