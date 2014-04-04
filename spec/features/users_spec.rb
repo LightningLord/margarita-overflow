@@ -3,23 +3,6 @@ require 'spec_helper'
 describe "Users", :js => false do
   # let!(:question) { create :question }
   #There is no way to do capybara like a before but we can use before to use less of repetition I believe but in Rspec. Still think we would need to go thru all these actions which is fine.
-
-  # sign up ##########
-  # visit '/'
-  # click_link('Sign up')
-  # fill_in('Email', :with => 'test@test.com')
-  # fill_in('Username', :with => 'test')
-  # fill_in('Password', :with => 'testingtesting')
-  # fill_in('Password', :with => 'testingtesting')
-  # click_button 'Sign up'
-
-## log in ##
-     # click_on 'Login'
-     #  fill_in('Email', :with => 'test@test.com')
-     #  fill_in('Password', :with => 'testingtesting')
-     #  click_button 'Sign in'
-
-
   describe "User can sign in" do
     it "by signing up" do
       visit root_path
@@ -32,41 +15,41 @@ describe "Users", :js => false do
       expect(page).to have_content('Welcome, nedstark')
     end
   end
+end
 
-    let(:user) {FactoryGirl.create(:user)}
+describe "Users" do
+
+  let(:user) {FactoryGirl.create(:user)}
+  before(:each) do
+    visit root_path
+    click_on 'Login'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+  end
+
+  describe " who are logged in" do
     it "if this person already has an account" do
-      visit root_path
-      click_on 'Login'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
-      click_button 'Sign in'
       expect(page).to have_content("Welcome, #{user.username}")
     end
-
+  end
 
   describe "User can log out" do
-    let(:user) {FactoryGirl.create(:user)}
     it "should not have access to answers" do
-      visit root_path
-      click_on 'Login'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
-      click_button 'Sign in'
       click_on 'Logout'
       expect(page).to have_content('Login')
     end
   end
 
   describe "User can ask a question" do
-    it "only if they are logged in" do
-
-      #have to figure out a way to click on create question for further the test
+    it "when logged in" do
+      first('.jumbotron').click_on("Ask a question")
+      fill_in 'Title', :with => "Die?"
+      fill_in 'Body', :with => "Will Ned Stark Die?"
+      click_on 'Create Question'
+      expect(page).to have_content('Die?')
     end
   end
-
-    it "if they are not logged in it will just render back page" do
-    end
-
 
 end
 
