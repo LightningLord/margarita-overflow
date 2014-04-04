@@ -5,11 +5,10 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(params[:answer], user_id: current_user.id)
-    if @answer.save
-      redirect_to question_path(@answer.question)
-    else
-    end
+    @answer = Answer.new(params[:answer])
+    @answer.user_id = current_user.id
+    @answer.save
+    redirect_to question_path(@answer.question)
   end
 
   def edit
