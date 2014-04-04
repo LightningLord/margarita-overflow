@@ -1,5 +1,8 @@
 <h1><%= @question.title %></h1>
-<div><%= @question.body %></div>
+<div>
+  <h3><%= @question.body %></h3>
+  <p>-Asked by <%= @question.user.username %></p>
+</div>
 
 <ul>
   <% @question.answers.each do |answer| %>
@@ -7,4 +10,3 @@
   <% end %>
 </ul>
 
-<%= render partial: "answer/new" locals: { question: @question } %>

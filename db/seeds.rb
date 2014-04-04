@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 10.times do
-  Questions.create(title: Faker::Lorem.sentences(sentence_count = 1, supplemental = false), body: Faker::Lorem.sentences(sentence_count = 4, supplemental = false), user_id: 1)
+  Question.create(title: Faker::Lorem.sentences(sentence_count = 1, supplemental = false), body: Faker::Lorem.sentences(sentence_count = 4, supplemental = false), user_id: 1)
 end
 
 50.times do
-  Answers.create(content: Faker::Lorem.paragraph, question_id: (1 + rand(10)), user_id: 1)
+  Answer.create(content: Faker::Lorem.paragraph, question_id: (1 + rand(10)), user_id: 1)
 end
