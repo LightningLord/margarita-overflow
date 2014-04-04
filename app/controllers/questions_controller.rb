@@ -9,15 +9,16 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = Question.new if session
   end
 
   def create
+    @user = User.find(session["warden.user.user.key"][0][0])
     @question = Question.new(params[:question])
+    @user.questions << @question
     if @question.save
       redirect_to question_path(@question)
-    else
-      render :new
     end
   end
+
 end
