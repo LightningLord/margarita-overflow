@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.belongs_to :user, :required => true
       t.string :title, :required => true
       t.text :body, :required => true
+      t.timestamps
     end
   end
 end
