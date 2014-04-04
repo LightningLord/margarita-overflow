@@ -18,6 +18,8 @@ class QuestionsController < ApplicationController
     @user.questions << @question
     if @question.save
       redirect_to question_path(@question)
+    else
+      redirect_to new_question_path
     end
   end
 
