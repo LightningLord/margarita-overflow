@@ -7,6 +7,10 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
 
+  config.before(:each) do
+    load "#{Rails.root}/db/seeds.rb"
+  end
+
   config.use_transactional_fixtures = false
   config.before(:suite) do
       DatabaseCleaner.strategy = :truncation
