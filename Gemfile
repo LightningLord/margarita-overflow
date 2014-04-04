@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
 gem 'omniauth-twitter'
+gem 'faker'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -26,7 +27,6 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'

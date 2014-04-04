@@ -1,0 +1,13 @@
+<h1><%= @question.title %></h1>
+<div>
+  <h2><%= @question.body %></h2>
+  <p>-Asked by <%= @question.user.username %></p>
+</div>
+
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.content %></li>
+  <% end %>
+</ul>
+
+<%= render partial: "answers/form", locals: { answer: @answer, question: @question } %>
