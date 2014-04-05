@@ -7,10 +7,6 @@ class VotesController < ApplicationController
   end
 
   def create
-    p "these are the params"
-    p params
-    p "these are the params vote data"
-    p params[:vote_data] #assuming params contains all the information necessary (including votable id and type)
     @vote = Vote.new(params[:vote_data])
 
     if @vote.save
