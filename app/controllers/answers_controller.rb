@@ -15,6 +15,7 @@ class AnswersController < ApplicationController
 
   def update
     @answer = Answer.find(params[:id])
-    @answer.update_attributes(params)
+    @answer.update_attributes(:content => params[:content])
+    redirect_to question_path(@answer.question)
   end
 end
