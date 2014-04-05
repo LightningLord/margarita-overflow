@@ -12,7 +12,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'better_errors'
+
 
 group :development, :test do
   gem 'rspec-rails'
