@@ -5,6 +5,9 @@
         <span id="vote-count">0</span>
         <%= link_to "down vote", 'placeholder', method: :post, remote: true, :class => "vote-down-off" %>
     </div>
+ <div class="page-header">
+
+  <%= render partial: "votes/question_new" %>
 
     <div class="question col-md-7" id="<%= @question.id  %>">
       <div id="Q">Question:</div>

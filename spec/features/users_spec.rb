@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Users", :js => false do
+describe "Users", :js => true do
   # let!(:question) { create :question }
   #There is no way to do capybara like a before but we can use before to use less of repetition I believe but in Rspec. Still think we would need to go thru all these actions which is fine.
   describe "User can sign in" do

@@ -1,3 +1,6 @@
+<%= render partial: "votes/answer_new", locals: { answer: answer} %>
+
+
 <div class="pull-left">
   <span><%= answer.content %></span>
 </div>
@@ -12,4 +15,3 @@
     <%= link_to "Comment on Answer", answer_path(answer), :class => "answer_comment_button" %>
   </div>
 </div>
-

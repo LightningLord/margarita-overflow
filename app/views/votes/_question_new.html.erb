@@ -1,0 +1,5 @@
+  <div class="vote col-md-1 ">
+      <%= link_to "up vote", votes_path(vote_data: {votable_id: @question.id, votable_type: "Question", value: +1}), method: :post, remote: true, :class => "vote-up-question"%>
+     <span id="question_<%=@question.id%>"><%= @question.vote_count %></span>
+      <%= link_to "down vote", votes_path(vote_data: {votable_id: @question.id, votable_type: "Question", value: -1}), method: :post, remote: true, :class => "vote-down-question" %>
+  </div>

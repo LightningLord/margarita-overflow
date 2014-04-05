@@ -49,9 +49,7 @@
   background-image: url(sativa.png);
 }
 
-body {
-  background-image: url(lime.jpg);
-}
+
 
 .margs {
   background-image: url(sativa.png);
@@ -113,7 +111,7 @@ body {
   text-align:center;
 }
 
-.vote-up-off {
+.vote-up-answer {
   text-indent: -9999em;
   font-size: 1px;
   background-image: url('bwup.png');
@@ -121,7 +119,7 @@ body {
   height: 25px;
 }
 
-.vote-down-off {
+.vote-down-answer {
   text-indent: -9999em;
   font-size: 1px;
   background-image: url('bwdown.png');
@@ -132,3 +130,20 @@ body {
 .hide_form {
  display: hidden;
 }
+
+.vote-up-question {
+  text-indent: -9999em;
+  font-size: 1px;
+  background-image: url('bwup.png');
+  width: 41px;
+  height: 25px;
+}
+
+.vote-down-question {
+  text-indent: -9999em;
+  font-size: 1px;
+  background-image: url('bwdown.png');
+  width: 41px;
+  height: 25px;
+}
+
