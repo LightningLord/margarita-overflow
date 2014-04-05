@@ -8,11 +8,13 @@
   </div>
 
   <% @question.answers.each do |answer| %>
-    <div class="A">Answer:</div>
-    <div class="answer">
-      <p><%= answer.content %></p>
-    </div>
-    <hr>
+    <% unless answer.content == nil %>
+      <div class="A">Answer:</div>
+      <div class="answer">
+        <%= render partial: "answers/show", locals: {answer: answer} %>
+      </div>
+      <hr>
+    <% end %>
   <% end %>
 
 <%= render partial: "answers/form", locals: { answer: @answer, question: @question } %>
