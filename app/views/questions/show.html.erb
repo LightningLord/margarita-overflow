@@ -14,12 +14,16 @@
     <div class="col-md-4">
       <p id="sig">Asked by <span class="em"><%= @question.user.username %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %> <%= gravatar_for(@question.user) %></p>
     </div>
-    <div>
+    <% @question.comments.each do |comment| %>
+      <%= render :partial => "comments/show_comment", locals: {:comment => comment} %>
+    <% end %>
+
+    <div class="col-md-12">
       <%= link_to "Comment on Question", '#', remote: true, id: "question_comment_button" %>
     </div>
   </div>
 
-  <div id="question_comments"></div>
+  <div id="question_comments" class="col-md-12"></div>
 
   <div class="answers col-md-12">
     <% @question.answers.each do |answer| %>
@@ -38,7 +42,6 @@
 
 <div class="hide_form" id="question_comment_form">
   <h2>New Comment</h2>
-
   <%= form_for [@commentable, Comment.new] do |f| %>
     <p>
       <%= f.label :content %><br/>

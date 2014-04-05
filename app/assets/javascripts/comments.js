@@ -20,4 +20,6 @@ $(document).ready(function() {
       $('#question_comments').append(response)
     })
   })
+
+
 });
