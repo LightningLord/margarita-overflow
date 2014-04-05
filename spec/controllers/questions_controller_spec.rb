@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe QuestionsController do
+  let(:user){FactoryGirl.create(:user)}
+  let(:question){FactoryGirl.create(:question)}
   context '#index' do
 
     it "renders all the questions page" do
@@ -19,12 +21,8 @@ describe QuestionsController do
 
   context "#show" do
 
-    before(:each) do
-      question = Question.new(title: "blah", body: "Test", user_id: 1)
-    end
-
     it "shows a single question" do
-      get :show, id: @question
+      get :show, :id => question.id
       expect(assigns(:question)).to eq(question)
     end
 
@@ -34,6 +32,7 @@ describe QuestionsController do
 
   context "#new" do
     it "is successful" do
+      request.session["warden.user.user.key"] = [[user.id]]
       get :new
       expect(response).to be_success
     end
@@ -42,17 +41,19 @@ describe QuestionsController do
 
   context "#create" do
     it "has valid attributes" do
+      request.session["warden.user.user.key"] = [[user.id]]
       expect {
-        post :create, :question => attributes_for(:question)
-        expect(response).to be_success
+        post :create, :question => FactoryGirl.attributes_for(:question)
+        expect(response).to be_redirect
       }.to change { Question.count }.by(1)
     end
-  end
-  it "with invalid attributes" do
+    it "with invalid attributes" do
+      request.session["warden.user.user.key"] = [[user.id]]
       expect {
         post :create
-        expect(response.status).to eq 422
-      }.to_not change { Todo.count }
+        expect(response).to redirect_to new_question_path
+      }.to_not change { Question.count }
     end
+  end
 
 end
