@@ -1,20 +1,32 @@
  <div class="page-header">
-  <div id="question">
-    <div id="Q">Question:</div>
+  
+  <div class="vote col-md-1 ">
+      <%= link_to "up vote", votes_path(qid: "thingy", votetype: "thingy"), method: :post, remote: true, :class => "vote-up-off"%>
+      <span id="vote-count">0</span>
+      <%= link_to "down vote", 'placeholder', method: :post, remote: true, :class => "vote-down-off" %>
   </div>
+
+  <div class="question col-md-7" id="<%= @question.id  %>">
+    <div id="Q">Question:</div>
     <h1><%= @question.title %></h1>
     <h3><%= @question.body %></h3>
+  </div>
+  <div class="col-md-4">
     <p id="sig">Asked by <span class="em"><%= @question.user.username %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %> <%= gravatar_for(@question.user) %></p>
   </div>
 
-  <% @question.answers.each do |answer| %>
-    <% unless answer.content == nil %>
-      <div class="A">Answer:</div>
-      <div class="answer">
-        <%= render partial: "answers/show", locals: {answer: answer} %>
-      </div>
-      <hr>
-    <% end %>
-  <% end %>
+</div>
+
+  <div class="col-md-12">
+    <% @question.answers.each do |answer| %>
+      <% unless answer.content == nil %>
+        <div class="A">Answer:</div>
+        <div class="answer">
+          <%= render partial: "answers/show", locals: {answer: answer} %>
+        </div>
+        <hr>
+      <% end %>
+    <% end %> 
+  </div>
 
 <%= render partial: "answers/form", locals: { answer: @answer, question: @question } %>
