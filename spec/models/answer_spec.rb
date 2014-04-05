@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Answer do
-  describe "assocations" do
-    it {should belong_to(:user)}
-  end
+  it {should belong_to :user}
+  it {should belong_to :question}
+
+
 end
