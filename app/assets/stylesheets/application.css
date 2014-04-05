@@ -128,3 +128,7 @@ body {
   width: 41px;
   height: 25px;
 }
+
+.hide_form {
+ display: hidden;
+}

@@ -1,5 +1,4 @@
  <div class="page-header container margs">
-  
   <div class="question">
     <div class="vote col-md-1 ">
         <%= link_to "up vote", votes_path(qid: "thingy", votetype: "thingy"), method: :post, remote: true, :class => "vote-up-off"%>
@@ -16,9 +15,11 @@
       <p id="sig">Asked by <span class="em"><%= @question.user.username %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %> <%= gravatar_for(@question.user) %></p>
     </div>
     <div>
-      <%= link_to "Comment on Question", remote: true , id: "question_comment" %>
+      <%= link_to "Comment on Question", '#', remote: true, id: "question_comment_button" %>
     </div>
   </div>
+
+  <div id="question_comments"></div>
 
   <div class="answers col-md-12">
     <% @question.answers.each do |answer| %>
@@ -29,8 +30,23 @@
         </div>
         <hr>
       <% end %>
-    <% end %> 
+    <% end %>
   </div>
- 
+
 <%= render partial: "answers/form", locals: { answer: @answer, question: @question } %>
 </div>
+
+<div class="hide_form" id="question_comment_form">
+  <h2>New Comment</h2>
+
+  <%= form_for [@commentable, Comment.new] do |f| %>
+    <p>
+      <%= f.label :content %><br/>
+      <%= f.hidden_field :commentable_id, value: @question.id %>
+      <%= f.hidden_field :commentable_type, value: @question.class %>
+      <%= f.text_area :content %>
+    </p>
+    <p><%= f.submit "Submit" %></p>
+  <% end %>
+</div>
+
