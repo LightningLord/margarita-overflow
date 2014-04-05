@@ -58,7 +58,30 @@ describe "Users" do
       expect(page).to_not have_content('Title')
     end
   end
+end
 
+
+
+describe "User can answer a question" do
+  let(:user) {FactoryGirl.create(:user)}
+  before(:each) do
+    visit root_path
+    click_on 'Login'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    first('.jumbotron').click_on("Ask a question")
+    fill_in 'Title', :with => "Die?"
+    fill_in 'Body', :with => "Will Ned Stark Die?"
+    click_on 'Create Question'
+    expect(page).to have_content('Die?')
+  end
+
+  it "when logged in" do
+    fill_in "answer[content]", :with => "A Lannister Always Pays His Debt"
+    click_on "Submit!"
+    expect(page).to have_content("A Lannister Always Pays His Debt")
+  end
 
 end
 

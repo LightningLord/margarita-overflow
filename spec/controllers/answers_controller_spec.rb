@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AnswersController do
-  context "edit" do
+  context "update" do
     let (:answer){FactoryGirl.create(:answer)}
     it "updates an answer page" do
       expect {
