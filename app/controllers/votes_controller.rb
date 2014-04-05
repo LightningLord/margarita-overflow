@@ -16,6 +16,8 @@ class VotesController < ApplicationController
     if @vote.save
       if @vote.votable_type == "Question"
         @question = Question.find(@vote.votable_id)
+        @question.update_attributes(vote_count: @question.vote_count + 1)
+        current_user.votes << @vote
         respond_to do |format|
           format.json {render json: @question}
         end

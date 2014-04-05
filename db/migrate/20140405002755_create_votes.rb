@@ -8,3 +8,7 @@ class CreateVotes < ActiveRecord::Migration
     end
   end
 end
+
+
+t.integer :votable_id (the id of either the question or the answer)
+t.integer :votable_type ("Question" or "Answer")
