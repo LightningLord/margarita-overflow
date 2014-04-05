@@ -103,3 +103,28 @@ body {
   border: 0px;
   margin: 0px;
 }
+
+.vote a, p {
+  display:block;
+  margin: 0 auto;
+}
+
+.vote {
+  text-align:center;
+}
+
+.vote-up-off {
+  text-indent: -9999em;
+  font-size: 1px;
+  background-image: url('bwup.png');
+  width: 41px;
+  height: 25px;
+}
+
+.vote-down-off {
+  text-indent: -9999em;
+  font-size: 1px;
+  background-image: url('bwdown.png');
+  width: 41px;
+  height: 25px;
+}
