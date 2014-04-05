@@ -1,40 +1,4 @@
-== Decepticons Overflow
-
-=== Team members
-
- - Jackie
- - Germain
- - Janet
- - Michael
-
-
-=== MVP
-
- - Users can sign-up, sign-in, sign-out
- - Logged-in users can post questions
- - Logged-in users can post answers
-
-
-===
- http://imgur.com/iKQkHzn.jpg
-
-=== Schema
-http://imgur.com/GE8COR2.jpg
-=== EXTRAS (To complete on Friday or beyond)
-
-- Questions have tags
-- Up vote and down votes both questions and answers
-- Comments, nesting?
-- Pretty CSS
-- Testing beyond basics
-===
-http://imgur.com/Z5R12XK.jpg
-
-=== STRETCH (Maybe never)
-
-- User ratings
-
-=== GET TWITTER SIGN IN WORKING ON YOUR LOCAL MACHINE
+### GET TWITTER SIGN IN WORKING ON YOUR LOCAL MACHINE
 
 You'll have to register a Twitter application on Twitter and get an API key and
 API secret.  You can do this at the [Twitter app registry][twitter app registry]
