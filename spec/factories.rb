@@ -16,4 +16,11 @@ FactoryGirl.define do
     user
     question
   end
+
+  factory :vote do
+    value
+    votable_id
+    votable_type
+    user
+  end
 end

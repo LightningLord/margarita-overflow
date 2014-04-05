@@ -10,7 +10,7 @@ RSpec.configure do |config|
   # config.before(:each) do
   #   load "#{Rails.root}/db/seeds.rb"
   # end
-
+  config.include Devise::TestHelpers, :type => :controller
   config.use_transactional_fixtures = false
   config.before(:suite) do
       DatabaseCleaner.strategy = :truncation
@@ -26,4 +26,5 @@ RSpec.configure do |config|
 
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
+
 end
