@@ -6,12 +6,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
-  # attr_accessible :title, :body
   validates_presence_of :username
   validates_uniqueness_of :username
 
+
   has_many :questions
   has_many :answers
+
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
