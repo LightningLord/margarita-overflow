@@ -1,0 +1,5 @@
+<div class="profile-page-entry"><div class="mytitle"><%= link_to question.title, question_path(question) %></div>
+<blockquote><%= question.body %></blockquote>
+
+<p> <%= time_ago_in_words(question.created_at) %> ago
+</div>
