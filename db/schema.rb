@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(:version => 20140405170726) do
     t.integer  "user_id"
     t.integer  "question_id"
     t.text     "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "vote_count",  :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
-  create_table "commentable", :force => true do |t|
+  create_table "comments", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
     t.integer  "commentable_id"
@@ -34,8 +35,9 @@ ActiveRecord::Schema.define(:version => 20140405170726) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "vote_count", :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "users", :force => true do |t|
