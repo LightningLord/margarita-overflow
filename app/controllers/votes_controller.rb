@@ -19,7 +19,7 @@ class VotesController < ApplicationController
         @question.update_attributes(vote_count: @question.vote_count + @vote.value)
         current_user.votes << @vote
         respond_to do |format|
-          format.json {render json: @question}
+          format.json {render json: @question.to_json}
         end
       elsif @vote.votable_type == "Answer"
         @answer = Answer.find(@vote.votable_id)
@@ -30,9 +30,8 @@ class VotesController < ApplicationController
         end
       end
 
-      #update the vote show erb
     else
-
+      render text: @vote.errors.full_messages.join(', '), :status => :unprocessable_entity
     end
 
   end
