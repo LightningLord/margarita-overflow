@@ -29,7 +29,7 @@ class VotesController < ApplicationController
           format.json {render json: @answer}
         end
       end
- 
+
     else
       render text: @vote.errors.full_messages.join(', '), :status => :unprocessable_entity
     end

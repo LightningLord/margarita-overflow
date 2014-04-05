@@ -9,11 +9,11 @@ class AnswersController < ApplicationController
     redirect_to question_path(@answer.question)
   end
 
-  def edit
+  def edit #not currently used
     @answer = Answer.find(params[:id])
   end
 
-  def update
+  def update #not currently used
     @answer = Answer.find(params[:id])
     @answer.update_attributes(:content => params[:content])
     redirect_to question_path(@answer.question)
