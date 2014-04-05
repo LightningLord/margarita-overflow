@@ -1,14 +1,31 @@
-<div class="margs">
-<h1><%= @user.username %></h1>
-<h3><%= user_adjective %> user for <%= time_ago_in_words(@user.created_at) %></h3>
-<hr>
-<h4>questions posed:</h4>
-<% @user.questions.each do |question| %>
-<%= render "user_question", :question => question %>
-<% end %>
-<hr>
-<h4>answers submitted:</h4>
-<% @user.answers.each do |answer| %>
-<%= render "user_answer", :answer => answer %>
-<% end %>
-</div>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="margs">
+            <h1>
+                <%= @user.username %>
+            </h1>
+            <h3>
+                <%= user_adjective %> user for <%= time_ago_in_words(@user.created_at) %>
+                <br><p>
+                <p><a href="#questions">questions</a> | <a href="#answers">answers</a> | <a href="#comments">comments</a></p>
+            </h3>
+            <hr id="questions">
+            <h4>
+                questions posed:
+            </h4><% @user.questions.each do |question| %><%= render "user_question", :question => question %><% end %>
+            <hr id="answers">
+            <h4>
+                answers submitted:
+            </h4><% @user.answers.each do |answer| %><%= render "user_answer", :answer => answer %><% end %>
+            <hr id="comments">
+            <!-- COMMENT OUT THE BELOW LINE ONCE COMMENTS EXIST -->
+            <% if false %>
+            <h4>
+                comments submitted:
+            </h4># <% @user.comments.each do |comment| %> # <%= render "user_comment", :comment => comment %> <% end %> <% end %>
+        </div>
+    </body>
+</html>
