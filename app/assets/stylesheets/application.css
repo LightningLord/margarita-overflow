@@ -111,7 +111,7 @@
   text-align:center;
 }
 
-.vote-up-off {
+.vote-up-answer {
   text-indent: -9999em;
   font-size: 1px;
   background-image: url('bwup.png');
@@ -119,10 +119,27 @@
   height: 25px;
 }
 
-.vote-down-off {
+.vote-down-answer {
   text-indent: -9999em;
   font-size: 1px;
   background-image: url('bwdown.png');
   width: 41px;
   height: 25px;
 }
+
+.vote-up-question {
+  text-indent: -9999em;
+  font-size: 1px;
+  background-image: url('bwup.png');
+  width: 41px;
+  height: 25px;
+}
+
+.vote-down-question {
+  text-indent: -9999em;
+  font-size: 1px;
+  background-image: url('bwdown.png');
+  width: 41px;
+  height: 25px;
+}
+

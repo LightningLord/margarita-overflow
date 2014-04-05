@@ -1,3 +1,6 @@
+<%= render partial: "votes/answer_new", locals: { answer: answer} %>
+
+
 <div class="pull-left">
   <span><%= answer.content %></span>
 </div>
@@ -9,4 +12,3 @@
     <span><%= gravatar_for(answer.user) %></span> 
   </p>
 </div>
-
