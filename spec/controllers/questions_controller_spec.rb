@@ -40,7 +40,7 @@ describe QuestionsController do
   end
 
   context "#create" do
-    it "has valid attributes" do
+    it "with valid attributes" do
       request.session["warden.user.user.key"] = [[user.id]]
       expect {
         post :create, :question => FactoryGirl.attributes_for(:question)
