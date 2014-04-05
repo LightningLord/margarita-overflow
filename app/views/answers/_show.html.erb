@@ -1,2 +1,12 @@
-<span><%= @answer.content %></span>
-<%= link_to "Edit", edit_answer_path(@answer) %>
+<div class="pull-left">
+  <span><%= answer.content %></span>
+</div>
+
+<div class="pull-right">
+  <p id="sig">
+    Answered by <span class="em"><%= answer.user.username %> </span> on
+    <span><%= answer.created_at.strftime("%m/%d/%Y %I:%M%P") %></span>
+    <span><%= gravatar_for(answer.user) %></span> 
+  </p>
+</div>
+
