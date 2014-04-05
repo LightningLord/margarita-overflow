@@ -13,7 +13,4 @@ class CommentsController < ApplicationController
     end
 
   end
-
-  # Comment(id: integer, content: string, user_id: integer, commentable_id: integer, commentable_type: string, created_at: datetime, updated_at: datetime)
-
 end

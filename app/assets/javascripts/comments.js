@@ -21,8 +21,3 @@ $(document).ready(function() {
     })
   })
 });
-
-// $.ajax('/comments/new').done(function(data){
-//
-//       $('#question_comments').html(data)
-//     })
