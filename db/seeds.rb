@@ -7,9 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 10.times do
-  Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, user_id: 1)
+  Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, user_id: (1+rand(10)))
 end
 
 50.times do
-  Answer.create(content: Faker::Lorem.paragraph, question_id: (1 + rand(10)), user_id: 1)
+  Answer.create(content: Faker::Lorem.paragraph, question_id: (1 + rand(10)), user_id: (1+rand(10)))
+end
+
+10.times do
+
+  user = User.create! :username => Faker::Name.first_name, :email => Faker::Internet.email, :password => 'topsecret', :password_confirmation => 'topsecret'
 end
