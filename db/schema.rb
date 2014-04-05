@@ -11,24 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140405002755) do
+ActiveRecord::Schema.define(:version => 20140405170726) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
     t.integer  "question_id"
     t.text     "content"
-    t.integer  "vote_count",  :default => 1
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "commentable", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
     t.text     "body"
-    t.integer  "vote_count", :default => 1
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
