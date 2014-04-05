@@ -1,12 +1,14 @@
-<% if user_signed_in? %>
-  <h2>Submit an answer</h2>
+<div class="col-md-12">
+  <% if user_signed_in? %>
+    <h2>Submit an answer</h2>
 
-  <%= form_for @answer do |f| %>
-    Answer: <%= f.text_area :content, size: "60x12" %><br>
-    <%= f.hidden_field :question_id, value: @question.id %>
-    <%= f.submit "Submit!" %>
+    <%= form_for @answer do |f| %>
+      Answer: <%= f.text_area :content, size: "60x12" %><br>
+      <%= f.hidden_field :question_id, value: @question.id %>
+      <%= f.submit "Submit!" %>
 
+    <% end %>
+  <% else %>
+    <p>Please <%= link_to "sign in", new_user_session_path %> to submit an answer.</p>
   <% end %>
-<% else %>
-  <p>Please <%= link_to "sign in", new_user_session_path %> to submit an answer.</p>
-<% end %>
+</div>
