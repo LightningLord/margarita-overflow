@@ -21,7 +21,6 @@ describe AnswersController do
         post :create, :answer => (FactoryGirl.attributes_for(:answer).merge(
         {:question_id => question.id}))
       }.to change {Answer.count}.by(1)
-
     end
   end
 
