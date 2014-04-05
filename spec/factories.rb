@@ -10,4 +10,10 @@ FactoryGirl.define do
     email {Faker::Internet.email}
     password {"winteriscoming"}
   end
+
+  factory :answer do
+    content {Faker::Lorem.word}
+    user
+    question
+  end
 end
