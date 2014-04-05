@@ -1,10 +1,16 @@
 var Vote = {
 
   updateVote: function(){
-    $('.vote-up-off').on('ajax:success',function(e, data, status, xhr){
-      console.log(data);
-      $('#vote-count').text(data.vote_count.toString());
+    console.log("whattup");
+
+    $('.vote-up-off').on("ajax:complete", function(e, data, status, xhr){
+      $('#vote-count').text(data.responseJSON.vote_count.toString());
     });
+
+    $('.vote-down-off').on("ajax:complete", function(e, data, status, xhr){
+      $('#vote-count').text(data.responseJSON.vote_count.toString());
+    });
+
   }
 
 };
