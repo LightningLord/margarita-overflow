@@ -1,10 +1,6 @@
  <div class="margs">
   <div class="question">
-    <div class="vote col-md-1 ">
-        <%= link_to "up vote", votes_path(qid: "thingy", votetype: "thingy"), method: :post, remote: true, :class => "vote-up-off"%>
-        <span id="vote-count">0</span>
-        <%= link_to "down vote", 'placeholder', method: :post, remote: true, :class => "vote-down-off" %>
-    </div>
+  
  <div class="page-header">
 
   <%= render partial: "votes/question_new" %>
@@ -17,6 +13,10 @@
     <div class="col-md-4">
       <p id="sig">Asked by <span class="em"><%= link_to @question.user.username, user_path(@question.user.id) %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %> <%= gravatar_for(@question.user) %></p>
     </div>
+    <% if @question.comments.count > 0 %>
+    <hr><h3>Comments:</h3>
+
+    <% end %>
     <% @question.comments.each do |comment| %>
       <%= render :partial => "comments/show_comment", locals: {:comment => comment} %>
     <% end %>

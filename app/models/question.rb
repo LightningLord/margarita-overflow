@@ -6,4 +6,8 @@ class Question < ActiveRecord::Base
   validates :title, :body, :user_id, :presence => true
   has_many :votes, as: :votable
 
+  def update_vote_count(vote_value)
+    self.update_attributes(vote_count: self.vote_count + vote_value)
+  end
+
 end
