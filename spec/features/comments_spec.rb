@@ -20,6 +20,7 @@ describe "Comments", :js => true do
     it "can comment on an answer" do
       click_on "Comment on Answer"
       fill_in 'comment[content]', :with => "Winter is coming"
+      click_on 'Submit'
       expect(page).to have_content "Winter is coming"
     end
 
