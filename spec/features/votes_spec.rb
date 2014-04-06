@@ -29,6 +29,18 @@ describe "Votes", :js => true do
       wait_for_ajax_to_finish
       expect(page).to have_content(-1)
     end
+
+    it "can upvote an answer" do
+      within ('.answer') {click_on 'up vote'}
+      wait_for_ajax_to_finish
+      expect(page).to have_content(1)
+    end
+
+    it "can downvote an answer" do
+      within ('.answer') {click_on 'down vote'}
+      wait_for_ajax_to_finish
+      expect(page).to have_content(-1)
+    end
   end
 
 end
