@@ -7,27 +7,25 @@ class VotesController < ApplicationController
   end
 
   def create
-    @vote = Vote.new(params[:vote_data])
-
-    if @vote.save
-      if @vote.votable_type == "Question"
-        @question = Question.find(@vote.votable_id)
-        @question.update_attributes(vote_count: @question.vote_count + @vote.value)
-        current_user.votes << @vote
+    vote = Vote.new(params[:vote_data])
+    if current_user.voted?(vote.votable_type, vote.votable_id).empty?
+      if vote.save && vote.votable_type == "Question"
+        @question = Question.find(vote.votable_id)
+        @question.update_vote_count(vote.value)
+        current_user.votes << vote
         respond_to do |format|
           format.json {render json: @question.to_json}
         end
-      elsif @vote.votable_type == "Answer"
-        @answer = Answer.find(@vote.votable_id)
-        @answer.update_attributes(vote_count: @answer.vote_count + @vote.value)
-        current_user.votes << @vote
+      elsif vote.save && vote.votable_type == "Answer"
+        @answer = Answer.find(vote.votable_id)
+        @answer.update_vote_count(vote.value)
+        current_user.votes << vote
         respond_to do |format|
-          format.json {render json: @answer}
+          format.json {render json: @answer.to_json}
         end
       end
-
     else
-      render text: @vote.errors.full_messages.join(', '), :status => :unprocessable_entity
+      render text: "You've already voted."
     end
 
   end
