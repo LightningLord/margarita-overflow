@@ -7,5 +7,6 @@ Project::Application.routes.draw do
   resources :questions
   resources :users
   resources :votes
+  resources :comments
 
 end

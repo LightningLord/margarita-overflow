@@ -1,0 +1,27 @@
+<div class="margs">
+<div class="pull-left">
+  <span><%= @answer.content %></span>
+</div>
+
+<div class="pull-right">
+  <div id="sig">
+    @Answered by <span class="em"><%= @answer.user.username %> </span> on
+    <span><%= @answer.created_at.strftime("%m/%d/%Y %I:%M%P") %></span>
+    <span><%= gravatar_for(@answer.user) %></span>
+  </div>
+  <div class="col-md-12">
+   <div>
+  <h2>New Comment</h2>
+  <%= form_for [@commentable, Comment.new] do |f| %>
+    <p>
+      <%= f.label :content %><br/>
+      <%= f.hidden_field :commentable_id, value: @answer.id %>
+      <%= f.hidden_field :commentable_type, value: @answer.class %>
+      <%= f.text_area :content %>
+    </p>
+    <p><%= f.submit "Submit" %></p>
+  <% end %>
+</div>
+  </div>
+</div>
+</div>f

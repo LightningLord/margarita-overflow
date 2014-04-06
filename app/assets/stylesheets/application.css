@@ -127,6 +127,10 @@
   height: 25px;
 }
 
+.hide_form {
+ display: hidden;
+}
+
 .vote-up-question {
   text-indent: -9999em;
   font-size: 1px;
