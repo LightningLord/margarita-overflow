@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       if @comment.commentable_type == "Answer"
         redirect_to question_path(Answer.find(@comment.commentable_id).question)
       else
-        render :partial => "show_comment", locals: {:comment => comment}
+        render :partial => "show_comment", locals: {:comment => @comment}
       end
     end
   end

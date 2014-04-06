@@ -19,9 +19,7 @@ describe VotesController do
     end
 
     it "changes a question's vote_count for an up vote" do
-      expect{
-        question_up_vote
-      }.to change{question.reload.vote_count}.by(1)
+      expect{question_up_vote}.to change{question.reload.vote_count}.by(1)
     end
 
     it "changes a question's vote_coutn for a down vote" do
