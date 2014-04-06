@@ -1,0 +1,10 @@
+<h2>New Comment</h2>
+
+<%= form_for [@commentable, Comment.new] do |f| %>
+  <p>
+    <%= f.label :content %><br/>
+    <%= f.hidden_field :question_id, value: question.id %>
+    <%= f.text_area :content %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
