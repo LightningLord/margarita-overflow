@@ -25,6 +25,13 @@ describe "Comments", :js => true do
 
     it "can comment on a question" do
       click_on "Comment on Question"
+      wait_for_ajax_to_finish
+      within first('.new_comment') do
+        fill_in 'comment[content]', :with => "Hear me roar"
+      end
+      first('.new_comment').click_button('Submit')
+      wait_for_ajax_to_finish
+      expect(page).to have_content "Hear me roar"
     end
   end
 end
