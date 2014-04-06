@@ -28,7 +28,7 @@ body {
 #Q {
   width: 10%;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.3em;
 }
 
 .A {
@@ -41,6 +41,7 @@ body {
   border: 2px solid black;
   border-radius: 20px;
   padding: 20px;
+  margin-bottom: 10px;
 }
 
 #sig {
@@ -55,6 +56,7 @@ body {
   margin-top: 10px;
   font-size: 1.5em;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .question-list span {
@@ -129,7 +131,6 @@ body {
 .container {
   width: 70%;
   margin-left: 15%;
-  border: 1px solid pink;
   min-width: 500px;
 }
 
