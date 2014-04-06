@@ -18,7 +18,7 @@ class VotesController < ApplicationController
         @answer = Answer.find(vote.votable_id)
         @answer.update_vote_count(vote.value)
         current_user.votes << vote
-        format.json {render json: @answer.to_json}
+        render json: @answer.to_json
       end
     else
       render text: "You've already voted."
