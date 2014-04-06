@@ -7,7 +7,7 @@
 
 <div class="pull-right">
   <div id="sig">
-    Answered by <span class="em"><%= answer.user.username %> </span> on
+    Answered by <span class="em"><%= link_to answer.user.username, user_path(answer.user) %></span> on
     <span><%= answer.created_at.strftime("%m/%d/%Y %I:%M%P") %></span>
     <span><%= gravatar_for(answer.user) %></span>
   </div>

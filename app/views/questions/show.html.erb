@@ -1,4 +1,4 @@
- <div class="page-header container margs">
+ <div class="margs">
   <div class="question">
     <div class="vote col-md-1 ">
         <%= link_to "up vote", votes_path(qid: "thingy", votetype: "thingy"), method: :post, remote: true, :class => "vote-up-off"%>
@@ -15,7 +15,7 @@
       <h3><%= @question.body %></h3>
     </div>
     <div class="col-md-4">
-      <p id="sig">Asked by <span class="em"><%= @question.user.username %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %> <%= gravatar_for(@question.user) %></p>
+      <p id="sig">Asked by <span class="em"><%= link_to @question.user.username, user_path(@question.user.id) %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %> <%= gravatar_for(@question.user) %></p>
     </div>
     <% @question.comments.each do |comment| %>
       <%= render :partial => "comments/show_comment", locals: {:comment => comment} %>
@@ -31,8 +31,7 @@
   <div class="answers col-md-12">
     <% @question.answers.each do |answer| %>
       <% unless answer.content == nil %>
-        <div class="A">Answer:</div>
-        <div class="answer">
+        <div class="answer"><div class="A">Answer:</div>
           <%= render partial: "answers/show", locals: {answer: answer} %>
         </div>
         <hr>
