@@ -13,16 +13,12 @@ class VotesController < ApplicationController
         @question = Question.find(vote.votable_id)
         @question.update_vote_count(vote.value)
         current_user.votes << vote
-        respond_to do |format|
-          format.json {render json: @question.to_json}
-        end
+        render json: @question.to_json
       elsif vote.save && vote.votable_type == "Answer"
         @answer = Answer.find(vote.votable_id)
         @answer.update_vote_count(vote.value)
         current_user.votes << vote
-        respond_to do |format|
-          format.json {render json: @answer.to_json}
-        end
+        format.json {render json: @answer.to_json}
       end
     else
       render text: "You've already voted."
