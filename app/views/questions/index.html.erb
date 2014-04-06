@@ -6,7 +6,7 @@
             <div class="question-list">
                 Q: <%= link_to question.title, question_path(question) %>
                 <p>
-                   <span> posted <%= time_ago_in_words(question.created_at) %> ago. <%= answer_count(question) %>.</span>
+                   <span> posted <%= time_ago_in_words(question.created_at) %> ago by <%= link_to question.user.username, user_path(question.user) %> . <%= answer_count(question) %>.</span>
             </div>
 
                      <% end %>

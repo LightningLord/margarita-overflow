@@ -17,6 +17,10 @@
     <div class="col-md-4">
       <p id="sig">Asked by <span class="em"><%= link_to @question.user.username, user_path(@question.user.id) %></span> on <%= @question.created_at.strftime("%m/%d/%Y %I:%M%P") %> <%= gravatar_for(@question.user) %></p>
     </div>
+    <% if @question.comments.count > 0 %>
+    <hr><h3>Comments:</h3>
+
+    <% end %>
     <% @question.comments.each do |comment| %>
       <%= render :partial => "comments/show_comment", locals: {:comment => comment} %>
     <% end %>

@@ -21,11 +21,9 @@
                 answers submitted:
             </h4><% @user.answers.each do |answer| %><%= render "user_answer", :answer => answer %><% end %>
             <hr id="comments">
-            <!-- COMMENT OUT THE BELOW LINE ONCE COMMENTS EXIST -->
-            <% if false %>
             <h4>
                 comments submitted:
-            </h4># <% @user.comments.each do |comment| %> # <%= render "user_comment", :comment => comment %> <% end %> <% end %>
+            </h4><% @user.comments.each do |comment| %> <%= render "user_comment", :comment => comment %> <% end %>
         </div>
     </body>
 </html>
