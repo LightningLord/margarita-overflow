@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
+  def voted?(type, id)
+    self.votes.where(votable_type: type, votable_id: id)
+  end
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
