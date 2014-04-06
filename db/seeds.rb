@@ -1,20 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'json'
+require 'net/http'
 
-10.times do
-  Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, user_id: (1+rand(10)))
+def open(url)
+  Net::HTTP.get(URI.parse(url))
 end
 
-50.times do
-  Answer.create(content: Faker::Lorem.paragraph, question_id: (1 + rand(10)), user_id: (1+rand(10)))
+page_content = open('http://api.chrisvalleskey.com/fillerama/get.php?count=100&format=json&show=starwars')
+parsed = JSON.parse(page_content)
+
+users = ["Han Solo", "Luke Skywalker", "Bib Fortuna", "Boba Fett", "Princess Leia", "R2D2", "C3P0", "Wedge Antilles", "Darth Vader", "Jabba"]
+
+10.times do |x|
+  Question.create(title: parsed["db"][x+50]["quote"], body: Faker::Lorem.paragraph, user_id: (1+rand(10)))
+end
+
+50.times do |x|
+  Answer.create(content: parsed["db"][x]["quote"], question_id: (1 + rand(10)), user_id: (1+rand(10)))
 end
 
 10.times do
-
-  user = User.create! :username => Faker::Name.first_name, :email => Faker::Internet.email, :password => 'topsecret', :password_confirmation => 'topsecret'
+  user = User.create! :username => users.pop, :email => Faker::Internet.email, :password => 'topsecret', :password_confirmation => 'topsecret'
 end

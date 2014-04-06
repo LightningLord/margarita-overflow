@@ -11,13 +11,24 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  background-image: url('food.png');
+  font-family: 'Roboto', sans-serif;
+}
+
+#headerimg {
+  width: 500px;
+  margin: 0px auto;
+}
+
 #question {
   margin-top: 50px;
 }
 #Q {
   width: 10%;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.3em;
 }
 
 .A {
@@ -26,6 +37,11 @@
 }
 
 .answer {
+  background-image: url('sativa.png');
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 10px;
 }
 
 #sig {
@@ -39,6 +55,14 @@
 .question-list{
   margin-top: 10px;
   font-size: 1.5em;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.question-list span {
+  font-size: .75em;
+  text-align: right;
+  display: inline;
 }
 
 #gravatar {
@@ -46,16 +70,18 @@
 }
 
 .jumbotron {
-  background-image: url(sativa.png);
+  background-image: url(dust.png);
 }
 
-
+#headerimg img {
+  margin: 0px auto;
+}
 
 .margs {
-  background-image: url(sativa.png);
+  background-image: url(dust.png);
   width: 60%;
   min-width: 500px;
-  margin-top: 20px;
+  margin-top: 45px;
   margin-left: 20%;
   margin-bottom: 50px;
   padding: 30px;
@@ -100,6 +126,16 @@
 .profile-page-entry blockquote {
   border: 0px;
   margin: 0px;
+}
+
+.container {
+  width: 70%;
+  margin-left: 15%;
+  min-width: 500px;
+}
+
+.hide_form {
+  display: none;
 }
 
 .vote a, p {
@@ -147,3 +183,12 @@
   height: 25px;
 }
 
+.navbar {
+  height: 150px;
+  width: 100%;
+  text-align: center;
+}
+
+#flashes {
+  text-align: center;
+}
