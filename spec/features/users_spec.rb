@@ -42,7 +42,7 @@ describe "Features" do
 
   describe "User can ask a question" do
     it "when logged in" do
-      first('.jumbotron').click_on("Ask a question")
+      click_on("Ask")
       fill_in 'Title', :with => "Die?"
       fill_in 'Body', :with => "Will Ned Stark Die?"
       click_on 'Create Question'
@@ -53,7 +53,7 @@ describe "Features" do
   describe "User cannot ask a question" do
     it "when logged out" do
       click_on 'Logout'
-      first('.jumbotron').click_on("Ask a question")
+      click_link("Ask a question")
       expect(page).to_not have_content('Title')
     end
   end
@@ -69,7 +69,7 @@ describe "User can answer a question" do
     fill_in 'Email', :with => user.email
     fill_in 'Password', :with => user.password
     click_button 'Sign in'
-    first('.jumbotron').click_on("Ask a question")
+    click_on("Ask")
     fill_in 'Title', :with => "Die?"
     fill_in 'Body', :with => "Will Ned Stark Die?"
     click_on 'Create Question'
