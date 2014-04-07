@@ -15,8 +15,6 @@ class VotesController < ApplicationController
         current_user.votes << vote
         render json: @votable.to_json
       end
-    else
-      render text: "You've already voted."
     end
 
   end
