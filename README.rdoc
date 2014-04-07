@@ -1,11 +1,15 @@
-== Decepticons Overflow
+== Team Capybara Ultimate Margarita Squad, Reloaded
+
+URL:
+http://margarita-overflow.herokuapp.com
 
 === Team members
 
- - Jackie
- - Germain
- - Janet
- - Michael
+ - Christine
+ - Rynan
+ - Lucas
+ - Jason
+ - Nicholas
 
 
 === MVP
