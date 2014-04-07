@@ -29,7 +29,7 @@
   <div id="question_comments" class="col-md-12"></div>
 
   <div class="answers col-md-12">
-    <% @question.answers.each do |answer| %>
+    <% @question.answers.sort {|a,b| a.vote_count <=> b.vote_count}.reverse.each do |answer| %>
       <% unless answer.content == nil %>
         <div class="answer"><div class="A">Answer:</div>
           <%= render partial: "answers/show", locals: {answer: answer} %>
