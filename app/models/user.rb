@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
-  def voted?(type, id)
+  def has_not_voted?(type, id)
     self.votes.where(votable_type: type, votable_id: id).empty?
   end
 
