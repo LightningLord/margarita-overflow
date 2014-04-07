@@ -8,7 +8,7 @@ class VotesController < ApplicationController
 
   def create
     vote = Vote.new(params[:vote_data])
-    if current_user.voted?(vote.votable_type, vote.votable_id).empty?
+    if current_user.voted?(vote.votable_type, vote.votable_id)
       if vote.save
         @votable = vote.votable_type.constantize.find vote.votable_id
         @votable.update_vote_count(vote.value)

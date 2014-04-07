@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   def voted?(type, id)
-    self.votes.where(votable_type: type, votable_id: id)
+    self.votes.where(votable_type: type, votable_id: id).empty?
   end
 
   def self.from_omniauth(auth)
