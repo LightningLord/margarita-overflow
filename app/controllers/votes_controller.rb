@@ -1,11 +1,5 @@
 class VotesController < ApplicationController
 
-  def new
-  end
-
-  def show
-  end
-
   def create
     vote = Vote.new(params[:vote_data])
     if current_user.has_not_voted?(vote.votable_type, vote.votable_id)
@@ -16,10 +10,5 @@ class VotesController < ApplicationController
         render json: @votable.to_json
       end
     end
-
   end
-
-  def destroy
-  end
-
 end
