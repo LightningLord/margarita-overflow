@@ -1,6 +1,6 @@
  <div class="margs">
   <div class="question">
-  
+
  <div class="page-header">
 
   <%= render partial: "votes/question_new" %>
@@ -21,15 +21,15 @@
       <%= render :partial => "comments/show_comment", locals: {:comment => comment} %>
     <% end %>
 
-    <div class="col-md-12">
+    <div class="comments-link">
       <%= link_to "Comment on Question", '#', remote: true, id: "question_comment_button" %>
     </div>
   </div>
 
-  <div id="question_comments" class="col-md-12"></div>
+  <div id="question_comments"></div>
 
-  <div class="answers col-md-12">
-    <% @question.answers.sort {|a,b| a.vote_count <=> b.vote_count}.reverse.each do |answer| %>
+  <div>
+    <% @question.sort_answers.each do |answer| %>
       <% unless answer.content == nil %>
         <div class="answer"><div class="A">Answer:</div>
           <%= render partial: "answers/show", locals: {answer: answer} %>

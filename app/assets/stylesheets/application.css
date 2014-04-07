@@ -13,7 +13,7 @@
  */
 
 body {
-  background-image: url('food.png');
+  background-image: url('pentagon.png');
   font-family: 'Roboto', sans-serif;
 }
 
@@ -32,12 +32,21 @@ body {
 }
 
 .A {
-  font-weight: bold;
-  font-size: 1.5em;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.answer-box h2 {
+  text-align: center;
+}
+
+.answer-box{
+  margin: 0px auto;
+
 }
 
 .answer {
-  background-image: url('sativa.png');
+  background-image: url('dust.png');
   border: 2px solid black;
   border-radius: 20px;
   padding: 20px;
@@ -45,7 +54,13 @@ body {
 }
 
 #sig {
+  margin-top: 20px;
   text-align: right;
+  clear: both;
+}
+
+.comment-by {
+  font-style: italic;
 }
 
 .em {
@@ -78,7 +93,7 @@ body {
 }
 
 .margs {
-  background-image: url(dust.png);
+  background-image: url(food.png);
   width: 60%;
   min-width: 500px;
   margin-top: 45px;
@@ -102,6 +117,17 @@ body {
   font-size: 1em;
   font-style: italic;
   text-align: center;
+}
+
+.answer-text {
+  font-size: 1.5em;
+}
+
+.comments-link {
+  text-align: right;
+  font-style: italic;
+  font-size: .9em;
+  margin-bottom: 25px;
 }
 
 .margs hr {
@@ -145,6 +171,7 @@ body {
 
 .vote {
   text-align:center;
+  margin-left: 85%;
 }
 
 .vote-up-answer {
@@ -167,12 +194,24 @@ body {
  display: hidden;
 }
 
+.comment {
+
+}
+
+#question-comments {
+  margin-bottom: 20px;
+}
+
 .vote-up-question {
   text-indent: -9999em;
   font-size: 1px;
   background-image: url('bwup.png');
   width: 41px;
   height: 25px;
+}
+
+.answer:nth-of-type(1) {
+  margin-top: 25px;
 }
 
 .vote-down-question {

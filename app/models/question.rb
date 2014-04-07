@@ -10,4 +10,10 @@ class Question < ActiveRecord::Base
     self.update_attributes(vote_count: self.vote_count + vote_value)
   end
 
+  def sort_answers
+    self.answers.sort do |a, b|
+      a.vote_count <=> b.vote_count
+    end.reverse
+  end
+
 end
